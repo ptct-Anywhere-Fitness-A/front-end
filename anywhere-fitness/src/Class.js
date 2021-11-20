@@ -3,12 +3,11 @@ import React from 'react';
 const Class = props => {
     console.log(props, "hit props")
 
-    // function available()
     function Attend(){
         const slots = (`${props.class.number_of_attendees}`<`${props.class.max_class_size}`) ? "You're in"  : "Class is Full";
         return (
             slots
-
+        {/* wanting to display *youre in* and to disable the attend button with an axios.put to update the class attendees  */ }
         )
     }
 
