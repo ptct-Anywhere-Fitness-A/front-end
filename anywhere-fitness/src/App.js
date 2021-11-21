@@ -1,5 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
+import Login from "./components/login.js" 
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Route path="/client">{/* include cleint component */}</Route>
         <Route path="/instructor">{/* include instructor component */}</Route>
       </Switch>
+      <Login />
     </div>
   );
 }
