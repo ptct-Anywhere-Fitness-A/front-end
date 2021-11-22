@@ -4,6 +4,7 @@ import Login from "./components/login.js";
 
 import SignUp from "./components/SignUp";
 import Instructor from "./components/Instructor";
+import PickYourClasses from "./components/PickYourClasses";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route exact path="/" component={Login}></Route>
           <Route path="/signup" component={SignUp}></Route>
           <Route path="/instructor" component={Instructor}></Route>
+          <Route path="/classes" component={PickYourClasses}></Route>
         </Switch>
       </Router>
     </div>
