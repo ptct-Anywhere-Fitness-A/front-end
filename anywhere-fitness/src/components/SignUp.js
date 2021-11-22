@@ -5,31 +5,23 @@ import axios from "axios";
 import { Form, Input, Label, Button } from "./styled-components/FormStyles";
 import { HeaderFour } from "./styled-components/HeaderOne";
 
-function Login() {
+const SignUp = () => {
   // const { push } = useHistory();
-  const initialValues = {
+  const [login, setLogin] = useState({
     username: "",
     password: "",
-  };
+  });
 
-  const [form, setForm] = useState(initialValues);
-
-  const updateForm = (name, value) => {
-    setForm({ ...form, [name]: value });
-  };
-
-  const onChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    updateForm(name, value);
+  const handleChange = (e) => {
+    setLogin({ ...login, [e.target.name]: e.target.value });
   };
 
   const handleInstructorSubmit = (e) => {
     e.preventDefault();
     axios
       .post(
-        "https://anywhere-fitnessbackend.herokuapp.com/api/users/login",
-        form
+        "https://anywhere-fitnessbackend.herokuapp.com/api/users/register",
+        login
       )
       .then((res) => {
         console.log(res);
@@ -43,8 +35,8 @@ function Login() {
     e.preventDefault();
     axios
       .post(
-        "https://anywhere-fitnessbackend.herokuapp.com/api/users/login",
-        form
+        "https://anywhere-fitnessbackend.herokuapp.com/api/users/register",
+        login
       )
       .then((res) => {
         console.log(res);
@@ -57,14 +49,14 @@ function Login() {
   return (
     <div className="form container">
       <Form>
-        <HeaderFour>Please login below to view or create classes</HeaderFour>
+        <HeaderFour>Enter your preferred username and password</HeaderFour>
         <Label>
           <Input
             placeholder="Username"
             type="text"
             name="username"
-            onChange={onChange}
-            value={form.username}
+            onChange={handleChange}
+            value={login.username}
           />
         </Label>
         <Label>
@@ -72,23 +64,19 @@ function Login() {
             placeholder="Password"
             type="password"
             name="password"
-            onChange={onChange}
-            value={form.password}
+            onChange={handleChange}
+            value={login.password}
           />
         </Label>
         <Button id="instructorSubmit" onClick={handleInstructorSubmit}>
-          Login as an Instructor
+          Create Instructor account
         </Button>
         <Button id="clientSubmit" onClick={handleClientSubmit}>
-          Login as a Client
+          Create Client account
         </Button>
-        <HeaderFour>Don't have an account? Sign up now!</HeaderFour>
-        <Link to="/signup">
-          <Button>Sign Up</Button>
-        </Link>
       </Form>
     </div>
   );
-}
+};
 
-export default Login;
+export default SignUp;

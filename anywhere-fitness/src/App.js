@@ -1,9 +1,11 @@
-// import { Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Login from "./components/login.js";
 import styled from "styled-components";
 
-import banner from "../src/public/gymbanner.png";
+import banner from "../src/gymbanner.png";
+import SignUp from "./components/SignUp";
+import Instructor from "./components/Instructor";
 
 function App() {
   return (
@@ -20,9 +22,17 @@ function App() {
           out of attendance taking and client payment processing.
         </Para>
       </ContainerCard>
-      {/* <Switch></Switch> */}
-
-      <Login />
+      <Switch>
+        <Route path="/">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/instructor">
+          <Instructor />
+        </Route>
+      </Switch>
     </div>
   );
 }
