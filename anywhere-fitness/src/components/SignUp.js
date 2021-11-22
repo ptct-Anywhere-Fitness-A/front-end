@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
 import { Form, Input, Label, Button } from "./styled-components/FormStyles";
@@ -10,6 +9,7 @@ const SignUp = () => {
   const [login, setLogin] = useState({
     username: "",
     password: "",
+    // type: "",
   });
 
   const handleChange = (e) => {
@@ -18,6 +18,7 @@ const SignUp = () => {
 
   const handleInstructorSubmit = (e) => {
     e.preventDefault();
+    // setLogin({ ...login, type: "instructor" });
     axios
       .post(
         "https://anywhere-fitnessbackend.herokuapp.com/api/users/register",
@@ -33,6 +34,7 @@ const SignUp = () => {
 
   const handleClientSubmit = (e) => {
     e.preventDefault();
+    // setLogin({ ...login, type: "client" });
     axios
       .post(
         "https://anywhere-fitnessbackend.herokuapp.com/api/users/register",

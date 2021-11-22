@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import axios from "axios";
+import { instructorlogin, clientLogin } from "../services/backendService";
 
 import { Form, Input, Label, Button } from "./styled-components/FormStyles";
 import { HeaderFour } from "./styled-components/HeaderOne";
@@ -8,7 +8,6 @@ import banner from "../gymbanner.png";
 import styled from "styled-components";
 
 function Login() {
-  // const { push } = useHistory();
   const initialValues = {
     username: "",
     password: "",
@@ -26,34 +25,12 @@ function Login() {
     updateForm(name, value);
   };
 
-  const handleInstructorSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post(
-        "https://anywhere-fitnessbackend.herokuapp.com/api/users/login",
-        form
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+  const handleInstructorSubmit = () => {
+    instructorlogin(form);
   };
 
-  const handleClientSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post(
-        "https://anywhere-fitnessbackend.herokuapp.com/api/users/login",
-        form
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+  const handleClientSubmit = () => {
+    clientLogin(form);
   };
 
   return (

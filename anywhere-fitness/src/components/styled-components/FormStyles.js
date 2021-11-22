@@ -36,7 +36,7 @@ const Button = styled.button`
   font-size: 14px;
   border: none;
   border-radius: 3px;
-  margin: 0px 20px;
+  margin: 0px 10px;
 `;
 
 export { Form, Input, Label, Button };
